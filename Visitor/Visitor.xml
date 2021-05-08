@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Visitor</name>
+    </assembly>
+    <members>
+        <member name="T:Visitor.AntivirusSystem.FullScanner">
+            <summary>
+            Сканер для полной проверки системы
+            </summary>
+            <see cref="T:Visitor.AntivirusSystem.ISystemScanner"/>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.FullScanner.#ctor">
+            <summary>
+            Инициализирует сканер для полной проверки системы
+            </summary>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.FullScanner.Scan(Visitor.FileSystem.IFileSystemElement)">
+            <summary>
+            Полностью сканирует <see cref="T:Visitor.FileSystem.IFileSystemElement"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.FullScanner.Scan(Visitor.FileSystem.File)">
+            <summary>
+            Полностью сканирует <see cref="T:Visitor.FileSystem.File"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.FullScanner.Scan(Visitor.FileSystem.Folder)">
+            <summary>
+            Полностью сканирует <see cref="T:Visitor.FileSystem.Folder"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="T:Visitor.AntivirusSystem.ISystemScanner">
+            <summary>
+            Системный сканер
+            </summary>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.ISystemScanner.Scan(Visitor.FileSystem.IFileSystemElement)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.IFileSystemElement"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.ISystemScanner.Scan(Visitor.FileSystem.File)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.File"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.ISystemScanner.Scan(Visitor.FileSystem.Folder)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.Folder"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="T:Visitor.AntivirusSystem.QuickScanner">
+            <summary>
+            Сканер для быстрой проверки системы
+            </summary>
+            <see cref="T:Visitor.AntivirusSystem.ISystemScanner"/>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.QuickScanner.#ctor">
+            <summary>
+            Инициализирует сканер для быстрой проверки системы
+            </summary>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.QuickScanner.Scan(Visitor.FileSystem.IFileSystemElement)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.IFileSystemElement"/>
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.QuickScanner.Scan(Visitor.FileSystem.File)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.File"/> на самые распространенные вирусы
+            Пропускает файлы с размером более 60
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="M:Visitor.AntivirusSystem.QuickScanner.Scan(Visitor.FileSystem.Folder)">
+            <summary>
+            Сканирует <see cref="T:Visitor.FileSystem.Folder"/> на самые распространенные вирусы
+            </summary>
+            <returns>
+            Список найденных <see cref="T:Visitor.AntivirusSystem.Suspect"/>
+            </returns>
+        </member>
+        <member name="T:Visitor.AntivirusSystem.Suspect">
+            <summary>
+            Подозрительный элемент файловой системы
+            </summary>
+        </member>
+        <member name="P:Visitor.AntivirusSystem.Suspect.Name">
+            <summary>
+            Название (в чем подозрение)
+            </summary>
+        </member>
+        <member name="P:Visitor.AntivirusSystem.Suspect.Path">
+            <summary>
+            Путь к элементу в файловой системе
+            </summary>
+        </member>
+        <member name="T:Visitor.AntivirusSystem.Virus">
+            <summary>
+            Вирис
+            </summary>
+        </member>
+        <member name="P:Visitor.AntivirusSystem.Virus.Name">
+            <summary>
+            Название вируса
+            </summary>
+        </member>
+        <member name="P:Visitor.AntivirusSystem.Virus.Signature">
+            <summary>
+            Сигнатура вируса для его поиска
+            </summary>
+        </member>
+        <member name="T:Visitor.FileSystem.File">
+            <summary>
+            Файл в файловой системе
+            </summary>
+            <see cref="T:Visitor.FileSystem.IFileSystemElement"/>
+        </member>
+        <member name="P:Visitor.FileSystem.File.Name">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.File.Path">
+            <summary>
+            Путь до файла
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.File.Size">
+            <summary>
+            Размер файла
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.File.Data">
+            <summary>
+            Данные файла
+            </summary>
+        </member>
+        <member name="M:Visitor.FileSystem.File.Accept(Visitor.AntivirusSystem.ISystemScanner)">
+            <summary>
+            Метод для двойной диспетчеризации файлов
+            </summary>
+            <see cref="T:Visitor.AntivirusSystem.ISystemScanner"/>
+        </member>
+        <member name="T:Visitor.FileSystem.Folder">
+            <summary>
+            Папка в файловой системе
+            </summary>
+            <see cref="T:Visitor.FileSystem.IFileSystemElement"/>
+        </member>
+        <member name="P:Visitor.FileSystem.Folder.Elements">
+            <summary>
+            Элементы файловой системы, которые содержатся внутри папки
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.Folder.Name">
+            <summary>
+            Имя папки
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.Folder.Path">
+            <summary>
+            Путь до папки
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.Folder.Size">
+            <summary>
+            Размер папки (ее содержимого)
+            </summary>
+        </member>
+        <member name="M:Visitor.FileSystem.Folder.Accept(Visitor.AntivirusSystem.ISystemScanner)">
+            <summary>
+            Метод для двойной диспетчеризации папок
+            </summary>
+            <see cref="T:Visitor.AntivirusSystem.ISystemScanner"/>
+        </member>
+        <member name="T:Visitor.FileSystem.IFileSystemElement">
+            <summary>
+            Элемент файловой системы
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.IFileSystemElement.Name">
+            <summary>
+            Имя элемента файловой системы
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.IFileSystemElement.Path">
+            <summary>
+            Путь до элемента файловой системы
+            </summary>
+        </member>
+        <member name="P:Visitor.FileSystem.IFileSystemElement.Size">
+            <summary>
+            Размер элемента файловой системы
+            </summary>
+        </member>
+        <member name="M:Visitor.FileSystem.IFileSystemElement.Accept(Visitor.AntivirusSystem.ISystemScanner)">
+            <summary>
+            Метод для двойной диспетчеризации
+            </summary>
+            <see cref="T:Visitor.AntivirusSystem.ISystemScanner"/>
+        </member>
+        <member name="T:Visitor.Program">
+            <summary>
+            Пример программы
+            </summary>
+        </member>
+    </members>
+</doc>
